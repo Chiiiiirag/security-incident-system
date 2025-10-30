@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Incident Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2>🔒 Security Incident System</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="report-incident.html">Report Incident</a>
+                <a href="incidents.html">All Incidents</a>
+            </nav>
+            <div class="user-info">
+                <span id="userName">Admin</span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <div class="container">
+            
+            <!-- Statistics Cards -->
+            <section class="stats-section">
+                <div class="stat-card red">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalIncidents">0</h3>
+                        <p>Total Incidents</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card orange">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pendingIncidents">0</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card blue">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="reviewIncidents">0</h3>
+                        <p>Under Review</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card green">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="resolvedIncidents">0</h3>
+                        <p>Resolved</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Incidents -->
+            <section class="recent-section">
+                <div class="section-header">
+                    <h3>Recent Incidents</h3>
+                    <a href="incidents.html" class="btn-view-all">View All →</a>
+                </div>
+                <div id="recentIncidentsList" class="incidents-list">
+                    <!-- Recent incidents will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Severity Breakdown -->
+            <section class="severity-section">
+                <h3>Incidents by Severity</h3>
+                <div class="severity-cards">
+                    <div class="severity-card critical">
+                        <h4 id="criticalCount">0</h4>
+                        <p>Critical</p>
+                    </div>
+                    <div class="severity-card high">
+                        <h4 id="highCount">0</h4>
+                        <p>High</p>
+                    </div>
+                    <div class="severity-card medium">
+                        <h4 id="mediumCount">0</h4>
+                        <p>Medium</p>
+                    </div>
+                    <div class="severity-card low">
+                        <h4 id="lowCount">0</h4>
+                        <p>Low</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/incidents.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Security Incidents</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2>🔒 Security Incident System</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="report-incident.html">Report Incident</a>
+                <a href="incidents.html" class="active">All Incidents</a>
+            </nav>
+            <div class="user-info">
+                <span id="userName">Admin</span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            
+            <!-- Filters -->
+            <section class="filter-section">
+                <h3>All Incidents</h3>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                    <button class="filter-btn" data-filter="under-review">Under Review</button>
+                    <button class="filter-btn" data-filter="resolved">Resolved</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchIncident" placeholder="Search by location, type, or description...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </section>
+
+            <!-- Incidents Table -->
+            <section class="table-section">
+                <div id="incidentsTable">
+                    <!-- Incidents will be loaded here -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/incidents.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

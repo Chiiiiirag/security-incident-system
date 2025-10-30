@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Security Incident</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as dashboard) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2>🔒 Security Incident System</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="report-incident.html" class="active">Report Incident</a>
+                <a href="incidents.html">All Incidents</a>
+            </nav>
+            <div class="user-info">
+                <span id="userName">Admin</span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="form-container">
+                <h2>Report Security Incident</h2>
+                <p class="subtitle">Please provide detailed information about the incident</p>
+                
+                <form id="incidentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Incident Type *</label>
+                            <select id="incidentType" required>
+                                <option value="">Select Type</option>
+                                <option value="breach">Security Breach</option>
+                                <option value="unauthorized">Unauthorized Access</option>
+                                <option value="theft">Theft</option>
+                                <option value="vandalism">Vandalism</option>
+                                <option value="suspicious">Suspicious Activity</option>
+                                <option value="camera-failure">Camera Failure</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Severity *</label>
+                            <select id="severity" required>
+                                <option value="">Select Severity</option>
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date of Incident *</label>
+                            <input type="date" id="incidentDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Time of Incident *</label>
+                            <input type="time" id="incidentTime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location *</label>
+                        <input type="text" id="location" placeholder="e.g., Main Gate, Parking Area, Floor 2" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Reporter Name *</label>
+                        <input type="text" id="reporterName" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Number *</label>
+                        <input type="tel" id="contactNumber" placeholder="e.g., +91 9876543210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Incident Description *</label>
+                        <textarea id="description" rows="5" 
+                            placeholder="Please provide detailed description of what happened, including any witnesses, damages, or suspicious behavior observed..." 
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Immediate Action Taken</label>
+                        <textarea id="actionTaken" rows="3" 
+                            placeholder="Describe any immediate actions taken (e.g., security notified, area secured, police called)"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn-cancel">Clear Form</button>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Submit Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/incidents.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Set today's date and current time as default
+        document.getElementById('incidentDate').valueAsDate = new Date();
+        document.getElementById('incidentTime').value = new Date().toTimeString().slice(0,5);
+    </script>
+</body>
+</html>
